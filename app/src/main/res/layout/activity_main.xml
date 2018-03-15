@@ -14,7 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size"
         android:textColor="@color/color_text"
         android:background="@color/bg_color_text"/>
 
