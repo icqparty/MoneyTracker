@@ -10,44 +10,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
-
-
-    //onStart, onResume, onPause, onStop, onDestroy,
 
     @Override
     protected void onStart() {
         super.onStart();
-
         Log.i("lifecycle","onStart run");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         Log.i("lifecycle","onResume run");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         Log.i("lifecycle","onPause run");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
         Log.i("lifecycle","onStop run");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         Log.i("lifecycle","onStart run");
     }
 }
