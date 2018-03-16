@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MoneyTracker</string>
-    <string name="text">Привет, Вася!</string>
-    <string name="text_size">20dp</string>
+    <string name="text_size" translatable="false">20dp</string>
+    <string name="hint_additem_name">name</string>
+    <string name="text">Hello! Vasya!</string>
+    <string name="char_rub">₽</string>
+    <string name="add_item_activity_title">New record</string>
 </resources>
