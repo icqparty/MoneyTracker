@@ -3,7 +3,7 @@
     <color name="colorPrimary">#95c9b8</color>
     <color name="colorPrimaryDark">#ade9d5</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="color_text">#ffffff</color>
-    <color name="bg_color_text">#84c0c5</color>
-    <color name="white">#ffff</color>
+    <color name="main_text">#ffffff</color>
+    <color name="bg_main_text">#84c0c5</color>
+    <color name="bg_from_additem">#ffff</color>
 </resources>
