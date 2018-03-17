@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MoneyTracker</string>
-    <string name="main_activity_text">Привет! Вася!</string>
+    <string name="main_activity_text_hello">Привет! Вася!</string>
     <string name="char_rub">₽</string>
     <string name="add_item_activity_hint_name">название</string>
     <string name="add_item_activity_header">Новая завись</string>
