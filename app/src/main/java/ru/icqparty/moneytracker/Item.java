@@ -41,12 +41,4 @@ public class Item {
         this.comment = comment;
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                ", comment='" + comment + '\'' +
-                '}';
-    }
 }
