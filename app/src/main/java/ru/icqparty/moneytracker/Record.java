@@ -10,7 +10,6 @@ public class Record {
     private Integer value;
     private String comment;
 
-
     public Record(String name, Integer value, String comment) {
         this.name = name;
         this.value = value;
@@ -39,14 +38,5 @@ public class Record {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    @Override
-    public String toString() {
-        return "Record{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                ", comment='" + comment + '\'' +
-                '}';
     }
 }
