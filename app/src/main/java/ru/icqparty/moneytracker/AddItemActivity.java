@@ -41,10 +41,11 @@ public class AddItemActivity extends AppCompatActivity {
             }
         };
 
-
+        //устанавливаем слушатель на изменение текста в полях
         nameItem.addTextChangedListener(watcherChange);
         valueItem.addTextChangedListener(watcherChange);
 
+        //устанавливаем обрадотку клика по кнопке
         addButtonItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
