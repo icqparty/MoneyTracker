@@ -13,4 +13,8 @@
     <color name="item_text">#f7f7f7</color>
     <color name="bg_item_name">#ffd25e</color>
     <color name="bg_item_value">#f4b01f</color>
+    <!--color tab-->
+    <color name="indicator_tab_text">#ffd94e</color>
+    <color name="selected_tab_text">#ffffff</color>
+    <color name="unselected_tab_text">#f5f5f5</color>
 </resources>

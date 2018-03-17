@@ -9,22 +9,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-
-        </activity>
-        <activity
-            android:name=".AddItemActivity"
-            android:label="@string/add_item_activity_header">
-
-        </activity>
-        <activity
-            android:name=".ItemsActivity"
-            android:label="@string/item_list_activity_header">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddItemActivity"
+            android:label="@string/add_item_activity_header"></activity>
     </application>
 
 </manifest>

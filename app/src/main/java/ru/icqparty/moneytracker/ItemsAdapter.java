@@ -74,7 +74,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHolder> {
 
         public void addData(Item record) {
             name.setText(record.getName());
-            value.setText(String.format("%1$s%2$s", String.valueOf(record.getValue()), this.context.getResources().getString(R.string.char_rub)));
+            value.setText(String.format("%1$s %2$s", String.valueOf(record.getValue()), this.context.getResources().getString(R.string.char_rub)));
         }
     }
 
