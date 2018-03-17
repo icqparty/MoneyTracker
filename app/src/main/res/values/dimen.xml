@@ -2,4 +2,5 @@
 <resources>
     <dimen name="main_activity_text_size">20sp</dimen>
     <dimen name="additem_activity_size">20dp</dimen>
+    <dimen name="additem_layout_height">68dp</dimen>
 </resources>

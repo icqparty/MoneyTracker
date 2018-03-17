@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">MoneyTracker</string>
-
-    <string name="main_activity_text">Hello! Vasya!</string>
-
+    <string name="main_activity_text_hello">Hello! Vasya!</string>
     <string name="char_rub">₽</string>
-
     <string name="additem_activity_hint_name">name</string>
-
     <string name="additem_activity_header">New record</string>
 </resources>
