@@ -14,8 +14,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/text_size"
+        android:textSize="@dimen/main_activity_text_size"
         android:textColor="@color/main_text"
-        android:background="@color/bg_main_text" />
+        android:background="@color/main_activity_bg_text" />
 
 </android.support.constraint.ConstraintLayout>

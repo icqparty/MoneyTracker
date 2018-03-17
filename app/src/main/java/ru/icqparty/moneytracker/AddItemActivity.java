@@ -35,9 +35,9 @@ public class AddItemActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                if (nameItem.getText().length() == 0 && valueItem.getText().length() == 0)
-                    addButtonItem.setEnabled(false);
-                else addButtonItem.setEnabled(true);
+                if (nameItem.getText().length() > 0 && valueItem.getText().length() > 0)
+                    addButtonItem.setEnabled(true);
+                else addButtonItem.setEnabled(false);
             }
         };
 

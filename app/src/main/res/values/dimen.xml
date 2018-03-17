@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_size">20sp</dimen>
+    <dimen name="main_activity_text_size">20sp</dimen>
+    <dimen name="additem_activity_size">20dp</dimen>
 </resources>
