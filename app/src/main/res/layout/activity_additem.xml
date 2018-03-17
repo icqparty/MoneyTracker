@@ -14,8 +14,8 @@
         android:background="@color/additem_activity_bg_form"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="22dp"
-        android:paddingRight="22dp">
+        android:paddingLeft="@dimen/additem_padding_left"
+        android:paddingRight="@dimen/additem_padding_left">
 
         <EditText
             android:id="@+id/name_item"
