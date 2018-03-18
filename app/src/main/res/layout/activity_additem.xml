@@ -6,8 +6,6 @@
     android:layout_gravity="center"
     android:background="@mipmap/bg_pattern"
     tools:context="ru.icqparty.moneytracker.AddItemActivity">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
