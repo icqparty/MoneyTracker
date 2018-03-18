@@ -1,10 +1,13 @@
-package ru.icqparty.moneytracker;
+package ru.icqparty.moneytracker.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import ru.icqparty.moneytracker.R;
+import ru.icqparty.moneytracker.adapters.MainPagesAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,10 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewPager = findViewById(R.id.view_pager);
-
         viewPager.setAdapter(new MainPagesAdapter(getSupportFragmentManager(), this));
         tabLayout = findViewById(R.id.tab_layout);
-
         tabLayout.setupWithViewPager(viewPager);
     }
 
