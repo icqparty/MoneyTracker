@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
+
         android:background="@color/additem_activity_bg_form"
         android:gravity="center_vertical"
         android:orientation="horizontal"

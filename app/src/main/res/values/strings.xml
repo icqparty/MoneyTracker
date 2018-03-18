@@ -15,4 +15,5 @@
         <item>@string/tab_expenses</item>
         <item>@string/tab_balance</item>
     </string-array>
+
 </resources>
