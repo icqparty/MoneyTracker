@@ -43,6 +43,7 @@ public class ItemsFragment extends Fragment {
             Toast.makeText(getContext(), "Type UNKNOWN", Toast.LENGTH_SHORT).show();
         }
 
+
     }
 
     @Nullable
