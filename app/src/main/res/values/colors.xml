@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#ade9d5</color>
     <color name="colorAccent">#4d4d4d</color>
 
-
     <color name="main_text">#ffffff</color>
     <color name="main_activity_bg_text">#84c0c5</color>
 
@@ -18,4 +17,5 @@
     <color name="indicator_tab_text">#ffd94e</color>
     <color name="selected_tab_text">#ffffff</color>
     <color name="unselected_tab_text">#f5f5f5</color>
+
 </resources>

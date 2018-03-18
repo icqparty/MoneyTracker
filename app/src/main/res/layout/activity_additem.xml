@@ -6,12 +6,9 @@
     android:layout_gravity="center"
     android:background="@mipmap/bg_pattern"
     tools:context="ru.icqparty.moneytracker.AddItemActivity">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
-
         android:background="@color/additem_activity_bg_form"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -27,7 +24,6 @@
             android:hint="@string/add_item_activity_hint_name"
             android:inputType="text"
             android:maxLines="1" />
-
         <EditText
             android:id="@+id/value_item"
             android:layout_width="match_parent"
@@ -39,7 +35,6 @@
             android:hint="0"
             android:inputType="number"
             android:maxLines="1" />
-
         <TextView
             android:layout_width="15dp"
             android:layout_height="wrap_content"
@@ -47,7 +42,6 @@
             android:background="@null"
             android:gravity="right"
             android:text="@string/char_rub" />
-
         <Button
             android:id="@+id/add_button_item"
             android:layout_width="26dp"
