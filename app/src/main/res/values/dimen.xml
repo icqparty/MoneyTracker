@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_activity_text_size">20sp</dimen>
+
+    <dimen name="main_activity_layout_height">68dp</dimen>
     <dimen name="additem_activity_size">20dp</dimen>
-    <dimen name="additem_layout_height">68dp</dimen>
+    <dimen name="additem_padding_left">22dp</dimen>
 </resources>

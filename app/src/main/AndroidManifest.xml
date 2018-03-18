@@ -13,7 +13,12 @@
         </activity>
         <activity
             android:name=".AddItemActivity"
-            android:label="@string/additem_activity_header">
+            android:label="@string/add_item_activity_header">
+
+        </activity>
+        <activity
+            android:name=".ItemListActivity"
+            android:label="@string/item_list_activity_header">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

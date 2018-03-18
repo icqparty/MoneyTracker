@@ -2,10 +2,15 @@
 <resources>
     <color name="colorPrimary">#95c9b8</color>
     <color name="colorPrimaryDark">#ade9d5</color>
-    <color name="colorAccent">#434242</color>
+    <color name="colorAccent">#4d4d4d</color>
 
     <color name="main_text">#ffffff</color>
     <color name="main_activity_bg_text">#84c0c5</color>
 
     <color name="additem_activity_bg_form">#ffff</color>
+
+    <!--color item list-->
+    <color name="item_text">#f7f7f7</color>
+    <color name="bg_item_name">#ffd25e</color>
+    <color name="bg_item_value">#f4b01f</color>
 </resources>
