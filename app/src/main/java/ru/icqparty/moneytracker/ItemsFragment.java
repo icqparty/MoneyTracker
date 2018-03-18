@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * Created by icqparty on 17.03.2018.
@@ -18,11 +19,10 @@ public class ItemsFragment extends Fragment {
 
     public static final int TYPE_INCOMES = 0;
     public static final int TYPE_EXPENSES = 1;
-    public static final int TYPE_BALANCE = 2;
     private static final int TYPE_UNKNOWN = -1;
+
     private static final String TYPE_KEY = "type";
     private ItemsAdapter itemsAdapter;
-    private int type;
 
     public static ItemsFragment createItemsFragment(int type) {
         ItemsFragment itemsFragment = new ItemsFragment();
@@ -38,11 +38,11 @@ public class ItemsFragment extends Fragment {
         itemsAdapter = new ItemsAdapter();
 
         Bundle bundle = getArguments();
-        type = bundle.getInt(TYPE_KEY, TYPE_UNKNOWN);
 
-        if (type == TYPE_UNKNOWN) {
-            throw new IllegalArgumentException("Unknown type");
+        if (bundle.getInt(TYPE_KEY, TYPE_UNKNOWN) == TYPE_UNKNOWN) {
+            Toast.makeText(getContext(), "Type UNKNOWN", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Nullable

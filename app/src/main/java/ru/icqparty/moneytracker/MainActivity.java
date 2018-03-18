@@ -15,18 +15,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         viewPager = findViewById(R.id.view_pager);
 
         viewPager.setAdapter(new MainPagesAdapter(getSupportFragmentManager(), this));
-
-
         tabLayout = findViewById(R.id.tab_layout);
 
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 
     @Override

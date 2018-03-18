@@ -59,8 +59,6 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHolder> {
     static class RecordVievHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView value;
-
-
         private Context context;
 
         public RecordVievHolder(View itemView) {
