@@ -8,13 +8,11 @@ public class Item {
 
     private String name;
     private Integer value;
-    private String comment;
 
 
     public Item(String name, Integer value, String comment) {
         this.name = name;
         this.value = value;
-        this.comment = comment;
     }
 
     public String getName() {
@@ -31,13 +29,5 @@ public class Item {
 
     public void setValue(Integer value) {
         this.value = value;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }
