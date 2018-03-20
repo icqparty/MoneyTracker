@@ -5,4 +5,14 @@
     <string name="add_item_activity_hint_name">name</string>
     <string name="add_item_activity_header">New record</string>
     <string name="item_list_activity_header">Money tracker</string>
+
+    <string name="tab_incomes">Incomes</string>
+    <string name="tab_expenses">Expenses</string>
+    <string name="tab_balance">Balance</string>
+
+    <string-array name="tab_title">
+        <item>@string/tab_incomes</item>
+        <item>@string/tab_expenses</item>
+        <item>@string/tab_balance</item>
+    </string-array>
 </resources>

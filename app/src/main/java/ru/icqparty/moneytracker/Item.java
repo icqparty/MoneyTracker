@@ -4,16 +4,15 @@ package ru.icqparty.moneytracker;
  * Created by icqparty on 17.03.2018.
  */
 
-public class Record {
+public class Item {
 
     private String name;
     private Integer value;
-    private String comment;
 
-    public Record(String name, Integer value, String comment) {
+
+    public Item(String name, Integer value, String comment) {
         this.name = name;
         this.value = value;
-        this.comment = comment;
     }
 
     public String getName() {
@@ -30,13 +29,5 @@ public class Record {
 
     public void setValue(Integer value) {
         this.value = value;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }
