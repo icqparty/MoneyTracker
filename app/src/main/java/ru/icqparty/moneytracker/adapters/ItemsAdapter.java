@@ -27,12 +27,12 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
     }
 
     @Override
-    public ItemsAdapter.RecordVievHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ItemsAdapter.RecordVievHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false));
+    public RecordVievHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new RecordVievHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ItemsAdapter.RecordVievHolder holder, int position) {
+    public void onBindViewHolder(RecordVievHolder holder, int position) {
         Item item = data.get(position);
         holder.setData(item);
     }
