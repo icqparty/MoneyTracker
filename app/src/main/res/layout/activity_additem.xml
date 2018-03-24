@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@mipmap/bg_pattern"
-    tools:context="ru.icqparty.moneytracker.activities.AddItemActivity">
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:elevation="4dp"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/colorAccent"
+        android:layout_height="?android:attr/actionBarSize" />
 
 
     <LinearLayout
+        android:elevation="3dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
         android:background="@color/additem_activity_bg_form"
@@ -55,4 +63,4 @@
             android:background="@drawable/ic_add"
             android:enabled="false" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
