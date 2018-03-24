@@ -23,7 +23,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
 
     public void loadData(List<Item> data) {
         this.data = data;
-        notifyDataSetChanged();
+        notifyItemInserted(data.size());
     }
 
     @Override
@@ -42,10 +42,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
         return data.size();
     }
 
+    public void addItem(Item item) {
+        data.add(item);
+        notifyDataSetChanged();
+    }
+
     static class RecordVievHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView value;
-
 
         private Context context;
 
