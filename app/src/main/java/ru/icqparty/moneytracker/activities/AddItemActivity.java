@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,6 @@ public class AddItemActivity extends AppCompatActivity {
 
     private static final String TAG = "AddItemActivity";
     public static final String TYPE_KEY = "type";
-    ;
 
 
     private String type;
@@ -34,11 +34,7 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
-
-
         type = getIntent().getStringExtra(TYPE_KEY);
-
-
         nameItem = findViewById(R.id.name_item);
         valueItem = findViewById(R.id.value_item);
         addButtonItem = findViewById(R.id.add_button_item);
@@ -85,6 +81,18 @@ public class AddItemActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
 
 
     }

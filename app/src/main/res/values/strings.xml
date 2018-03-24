@@ -8,11 +8,16 @@
 
     <string name="tab_incomes">Incomes</string>
     <string name="tab_expenses">Expenses</string>
-    <string name="tab_balance">Balance</string>
+    <string name="tab_balance" translatable="false">Balance</string>
 
     <string-array name="tab_title">
         <item>@string/tab_incomes</item>
         <item>@string/tab_expenses</item>
         <item>@string/tab_balance</item>
     </string-array>
+
+
+    <string name="action_remove"></string>
+    <string name="action_edit">Edit</string>
+
 </resources>
