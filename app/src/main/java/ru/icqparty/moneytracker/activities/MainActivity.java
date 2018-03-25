@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import ru.icqparty.moneytracker.App;
 import ru.icqparty.moneytracker.R;
 import ru.icqparty.moneytracker.adapters.MainPagesAdapter;
 import ru.icqparty.moneytracker.fragments.ItemsFragment;
@@ -31,14 +32,16 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager);
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        viewPager.setAdapter(new MainPagesAdapter(getSupportFragmentManager(), this));
+        viewPager = findViewById(R.id.viewPager);
         viewPager.addOnPageChangeListener(this);
+        tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+        MainPagesAdapter adapter = new MainPagesAdapter(getSupportFragmentManager(), this);
+        viewPager.setAdapter(adapter);
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 }
                 fab.setEnabled(false);
                 break;
-
-
         }
     }
 
@@ -125,5 +126,15 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         super.onSupportActionModeFinished(mode);
         fab.show();
         actionMode = null;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!((App) getApplication()).isAuthorized()) {
+            Intent intent = new Intent(this, AuthActivity.class);
+            startActivity(intent);
+        }
     }
 }

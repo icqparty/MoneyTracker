@@ -14,6 +14,7 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            android:elevation="2dp"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
@@ -21,9 +22,12 @@
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
+            android:elevation="3dp"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimary" />
+            app:tabIndicatorColor="@color/indicator_tab_text"
+            android:background="@color/colorPrimary"
+            app:tabIndicatorHeight="2dp" />
 
     </android.support.design.widget.AppBarLayout>
 

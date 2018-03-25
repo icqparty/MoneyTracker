@@ -12,17 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Date;
-
 import ru.icqparty.moneytracker.R;
 import ru.icqparty.moneytracker.models.Item;
 
 public class AddItemActivity extends AppCompatActivity {
 
-    private static final String TAG = "AddItemActivity";
     public static final String TYPE_KEY = "type";
-
-
+    private static final String TAG = "AddItemActivity";
     private String type;
 
     private EditText nameItem;
@@ -71,9 +67,8 @@ public class AddItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String value = valueItem.getText().toString();
                 String name = nameItem.getText().toString();
-                String date = new Date().toString();
 
-                Item item = new Item(type, name, value, date);
+                Item item = new Item(type, name, value);
                 Intent intent = new Intent();
                 intent.putExtra("item", item);
                 setResult(RESULT_OK, intent);

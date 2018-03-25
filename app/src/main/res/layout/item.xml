@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="1dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp">
 
 
     <TextView
@@ -18,11 +18,11 @@
         tools:text="Android-разработка от 05.03.2018" />
 
     <TextView
+        android:background="@color/colorShadow"
         android:id="@+id/value"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/bg_item_value"
         android:gravity="center"
         android:padding="@dimen/item_padding"
         android:textColor="@color/item_text"

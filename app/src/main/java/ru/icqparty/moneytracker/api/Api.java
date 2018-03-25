@@ -3,11 +3,11 @@ package ru.icqparty.moneytracker.api;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
+import ru.icqparty.moneytracker.models.AddItemResult;
+import ru.icqparty.moneytracker.models.AuthResult;
 import ru.icqparty.moneytracker.models.Item;
 
 /**
@@ -15,15 +15,15 @@ import ru.icqparty.moneytracker.models.Item;
  */
 
 public interface Api {
+    @GET("auth")
+    Call<AuthResult> auth(@Query("social_user_id") String userId);
 
+    @GET("items")
+    Call<List<Item>> getItems(@Query("type") String type);
 
-    @GET("items/{type}")
-    Call<List<Item>> get(@Path("type") String type);
+    @POST("items/add")
+    Call<AddItemResult> addItem(@Query("price") String price, @Query("name") String name, @Query("type") String type);
 
-
-    @POST("items")
-    Call<Item> post(@Body Item item);
-
-    @DELETE("items/{id}")
-    Call<Item> delete(@Path("type") Integer id);
+    @POST("items/remove")
+    Call<List<Item>> remove(@Query("id") String type);
 }

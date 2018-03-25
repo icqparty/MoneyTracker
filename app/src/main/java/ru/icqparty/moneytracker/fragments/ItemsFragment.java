@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +30,7 @@ import ru.icqparty.moneytracker.activities.RemoveDialog;
 import ru.icqparty.moneytracker.adapters.ItemsAdapter;
 import ru.icqparty.moneytracker.adapters.ItemsAdapterListener;
 import ru.icqparty.moneytracker.api.Api;
+import ru.icqparty.moneytracker.models.AddItemResult;
 import ru.icqparty.moneytracker.models.Item;
 
 /**
@@ -38,10 +38,9 @@ import ru.icqparty.moneytracker.models.Item;
  */
 
 public class ItemsFragment extends Fragment {
-    private static final String TAG = "ItemsFragment";
-
-    private static final String TYPE_KEY = "type";
     public static final int ADD_ITEM_REQUEST_CODE = 1;
+    private static final String TAG = "ItemsFragment";
+    private static final String TYPE_KEY = "type";
     private static final int RESULT_ADD_OK = 1;
     private ItemsAdapter itemsAdapter;
     private String type;
@@ -49,6 +48,38 @@ public class ItemsFragment extends Fragment {
     private Api api;
 
     private SwipeRefreshLayout swipeRefreshLayout;
+    private ActionMode actionMode = null;
+    private ActionMode.Callback actionModelCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater menuInflater = new MenuInflater(getContext());
+            menuInflater.inflate(R.menu.items_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.remove: {
+                    removeDialog();
+                    mode.finish();
+                    break;
+                }
+            }
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            itemsAdapter.clearSelection();
+            actionMode = null;
+        }
+    };
 
     public static ItemsFragment createItemsFragment(String type) {
         ItemsFragment itemsFragment = new ItemsFragment();
@@ -97,7 +128,7 @@ public class ItemsFragment extends Fragment {
             Item item = data.getParcelableExtra("item");
             Log.d(TAG, "onActivityResult: get item" + item);
             if (item.type.equals(type)) {
-                itemsAdapter.addItem(item);
+                addApiItem(item);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,22 +139,39 @@ public class ItemsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(itemsAdapter);
         loadItems();
     }
 
     private void loadItems() {
-        api.get(type).enqueue(new Callback<List<Item>>() {
+        api.getItems(type).enqueue(new Callback<List<Item>>() {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
+
                 itemsAdapter.loadData(response.body());
                 swipeRefreshLayout.setRefreshing(false);
             }
+
             @Override
             public void onFailure(Call<List<Item>> call, Throwable t) {
                 swipeRefreshLayout.setRefreshing(false);
                 Log.e(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    private void addApiItem(final Item item) {
+        api.addItem(item.value, item.name, item.type).enqueue(new Callback<AddItemResult>() {
+            @Override
+            public void onResponse(Call<AddItemResult> call, retrofit2.Response<AddItemResult> response) {
+                Log.d(TAG, "onResponse: add item" + response.body());
+                itemsAdapter.addItem(item);
+            }
+
+            @Override
+            public void onFailure(Call<AddItemResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
     }
@@ -136,7 +184,10 @@ public class ItemsFragment extends Fragment {
         }
     }
 
-    private ActionMode actionMode = null;
+    private void removeDialog() {
+        RemoveDialog dialog = new RemoveDialog();
+        dialog.show(getActivity().getFragmentManager(), "ConfirmationDialog");
+    }
 
     private class CliclListener implements ItemsAdapterListener {
         @Override
@@ -163,43 +214,5 @@ public class ItemsFragment extends Fragment {
         private void toggleSelection(int position) {
             itemsAdapter.toggleSeletion(position);
         }
-    }
-
-    private ActionMode.Callback actionModelCallback = new ActionMode.Callback() {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            MenuInflater menuInflater = new MenuInflater(getContext());
-            menuInflater.inflate(R.menu.items_menu, menu);
-            return true;
-        }
-
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.remove: {
-                    removeDialog();
-                    mode.finish();
-                    break;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            itemsAdapter.clearSelection();
-            actionMode = null;
-        }
-    };
-
-
-    private void removeDialog() {
-        RemoveDialog dialog = new RemoveDialog();
-        dialog.show(getActivity().getFragmentManager(), "ConfirmationDialog");
     }
 }

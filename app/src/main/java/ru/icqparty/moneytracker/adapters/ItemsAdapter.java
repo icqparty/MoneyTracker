@@ -22,6 +22,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
 
     private List<Item> data = new ArrayList<>();
     private ItemsAdapterListener itemsAdapterListener = null;
+    private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
 
     public void setListener(ItemsAdapterListener listener) {
         this.itemsAdapterListener = listener;
@@ -29,7 +30,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
 
     public void loadData(List<Item> data) {
         this.data = data;
-        notifyItemInserted(data.size());
+        notifyDataSetChanged();
     }
 
     @Override
@@ -50,10 +51,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
 
     public void addItem(Item item) {
         data.add(item);
-        notifyDataSetChanged();
+        notifyItemInserted(data.size());
     }
-
-    private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
 
     public void toggleSeletion(int position) {
         if (sparseBooleanArray.get(position, false)) {
