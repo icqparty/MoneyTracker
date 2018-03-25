@@ -7,16 +7,15 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:elevation="4dp"
+        android:elevation="8dp"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:layout_height="?android:attr/actionBarSize" />
 
-
     <LinearLayout
-        android:elevation="3dp"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
         android:background="@color/additem_activity_bg_form"

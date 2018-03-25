@@ -30,7 +30,6 @@ public class RemoveDialog extends DialogFragment {
                     }
                 })
                 .create();
-
         return dialog;
     }
 }
