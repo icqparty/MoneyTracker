@@ -19,11 +19,11 @@
 
     <ImageView
         android:id="@+id/imageBg"
-        android:layout_width="137dp"
-        android:layout_height="137dp"
+        android:layout_width="125dp"
+        android:layout_height="124dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,10 @@
     <TextView
         android:id="@+id/lblText"
         android:layout_width="243dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="Ваш незаменимый помошник в управлении бюджетом"
         android:textAlignment="center"
         android:textColor="@color/item_text"
@@ -48,18 +48,21 @@
 
     <Button
         android:id="@+id/singInButton"
-        android:layout_width="157dp"
-        android:layout_height="46dp"
+        android:layout_width="201dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/siign_in_button"
+        android:drawableLeft="@mipmap/icon_google"
         android:text="ВОЙТИ"
         android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
+        android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/imageLogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblText" />
+        app:layout_constraintTop_toBottomOf="@+id/lblText"
+        app:layout_constraintVertical_bias="0.372" />
 </android.support.constraint.ConstraintLayout>
