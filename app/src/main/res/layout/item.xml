@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/item_bg_selector"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="10dp"
+    android:background="@drawable/item_bg_selector"
+    android:orientation="horizontal">
 
 
     <TextView
@@ -18,11 +18,11 @@
         tools:text="Android-разработка от 05.03.2018" />
 
     <TextView
-        android:background="@color/colorShadow"
         android:id="@+id/value"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/colorShadow"
         android:gravity="center"
         android:padding="@dimen/item_padding"
         android:textColor="@color/item_text"
