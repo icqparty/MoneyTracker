@@ -1,4 +1,4 @@
-package ru.icqparty.moneytracker.models;
+package ru.icqparty.moneytracker;
 
 import android.content.Context;
 import android.graphics.Canvas;

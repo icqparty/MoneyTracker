@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="@+id/income"
         app:layout_constraintTop_toBottomOf="@+id/income" />
 
-    <com.loftschool.moneytrackermarch18.DiagramView
+    <ru.icqparty.moneytracker.DiagramView
         android:id="@+id/diagram"
         android:layout_width="359dp"
         android:layout_height="220dp"

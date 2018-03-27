@@ -58,7 +58,9 @@ public class AuthActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
+        if (account != null) {
+            updateUI(account);
+        }
     }
 
 

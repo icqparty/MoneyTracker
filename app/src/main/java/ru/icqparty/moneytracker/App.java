@@ -2,6 +2,7 @@ package ru.icqparty.moneytracker;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,6 +28,7 @@ public class App extends Application {
 
     private static final String PREFS_NAME = "shared_prefs";
     private static final String KEY_TOKEN = "auth_token";
+    private static final String TAG ="Application";
     private Api api;
 
     @Override
@@ -71,6 +73,7 @@ public class App extends Application {
     }
 
     public boolean isAuthorized() {
+        Log.e(TAG, "isAuthorized: "+!TextUtils.isEmpty(getAuthToken()) );
         return !TextUtils.isEmpty(getAuthToken());
     }
 

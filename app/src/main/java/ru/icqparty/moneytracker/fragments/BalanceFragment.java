@@ -2,6 +2,7 @@ package ru.icqparty.moneytracker.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ import ru.icqparty.moneytracker.App;
 import ru.icqparty.moneytracker.R;
 import ru.icqparty.moneytracker.api.Api;
 import ru.icqparty.moneytracker.models.BalanceResult;
-import ru.icqparty.moneytracker.models.DiagramView;
+import ru.icqparty.moneytracker.DiagramView;
 
 public class BalanceFragment extends Fragment {
 
@@ -57,11 +58,19 @@ public class BalanceFragment extends Fragment {
         updateData();
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+            updateData();
+        }
+    }
+
     private void updateData() {
 
         api.balance().enqueue(new Callback<BalanceResult>() {
             @Override
-            public void onResponse(Call<BalanceResult> call, Response<BalanceResult> response) {
+            public void onResponse(Call<BalanceResult> call, @NonNull Response<BalanceResult> response) {
                 BalanceResult result = response.body();
 
                 total.setText(getString(R.string.value, result.income - result.expense));
