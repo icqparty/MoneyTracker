@@ -8,6 +8,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 import ru.icqparty.moneytracker.models.AddItemResult;
 import ru.icqparty.moneytracker.models.AuthResult;
+import ru.icqparty.moneytracker.models.BalanceResult;
 import ru.icqparty.moneytracker.models.Item;
 
 /**
@@ -18,6 +19,10 @@ public interface Api {
     @GET("auth")
     Call<AuthResult> auth(@Query("social_user_id") String userId);
 
+    @GET("logout")
+    Call<AuthResult> logout(@Query("social_user_id") String userId);
+
+
     @GET("items")
     Call<List<Item>> getItems(@Query("type") String type);
 
@@ -25,5 +30,8 @@ public interface Api {
     Call<AddItemResult> addItem(@Query("price") String price, @Query("name") String name, @Query("type") String type);
 
     @POST("items/remove")
-    Call<List<Item>> remove(@Query("id") String type);
+    Call<List<Item>> remove(@Query("id") String id);
+
+    @GET("balance")
+    Call<BalanceResult> balance();
 }

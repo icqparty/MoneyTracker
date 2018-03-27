@@ -41,7 +41,6 @@ public class AuthActivity extends AppCompatActivity {
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                //   .requestIdToken("552130244131-51api7n19ll7rdo2l5q43ei0lqpvd4f5.apps.googleusercontent.com")
                 .build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -100,8 +99,10 @@ public class AuthActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<AuthResult> call, retrofit2.Response<AuthResult> response) {
                     AuthResult result = response.body();
+                    Log.i(TAG, "onResponse: OK");
                     ((App) getApplication()).setAuthToken(result.token);
                     finish();
+
                 }
 
                 @Override

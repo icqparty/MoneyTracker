@@ -5,107 +5,107 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="185dp"
-        android:layout_height="44dp"
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="53dp"
         android:gravity="center"
         android:text="10000.33Р"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/balance_text"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/total_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:text="ваш баланс"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:textColor="#95989a"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/total"
+        app:layout_constraintStart_toStartOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="87dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/expense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="10456Р"
         android:textAlignment="center"
         android:textColor="@color/balance_text_expense"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/total_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/total_title" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="76dp"
-        android:layout_height="38dp"
+        android:id="@+id/income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
         android:text="1045Р"
         android:textAlignment="center"
         android:textColor="@color/balance_text_income"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/total_title"
+        app:layout_constraintTop_toTopOf="@+id/expense" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="88dp"
-        android:layout_height="15dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/expense_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:text="расход"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/expense"
+        app:layout_constraintStart_toStartOf="@+id/expense"
+        app:layout_constraintTop_toBottomOf="@+id/expense" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="58dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:id="@+id/income_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:text="доход"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/income"
+        app:layout_constraintStart_toStartOf="@+id/income"
+        app:layout_constraintTop_toBottomOf="@+id/income" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="135dp"
-        android:layout_height="116dp"
-        android:layout_marginBottom="72dp"
+    <com.loftschool.moneytrackermarch18.DiagramView
+        android:id="@+id/diagram"
+        android:layout_width="359dp"
+        android:layout_height="220dp"
+        android:layout_marginBottom="?android:attr/actionBarSize"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.291"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toBottomOf="@+id/expense_title" />
 
 
 </android.support.constraint.ConstraintLayout>

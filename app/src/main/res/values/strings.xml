@@ -16,6 +16,8 @@
         <item>@string/tab_balance</item>
     </string-array>
 
+    <string name="value">%1$d \u20bd</string>
+
 
     <string name="action_remove">Remove</string>
     <string name="action_edit">Edit</string>
