@@ -64,9 +64,12 @@ public class BalanceFragment extends Fragment {
             public void onResponse(Call<BalanceResult> call, Response<BalanceResult> response) {
                 BalanceResult result = response.body();
 
+                result.income = 19000;
+                result.expense = 4500;
                 total.setText(getString(R.string.value, result.income - result.expense));
                 expense.setText(getString(R.string.value, result.expense));
                 income.setText(getString(R.string.value, result.income));
+
                 diagram.update(result.income, result.expense);
             }
 

@@ -30,7 +30,7 @@ public interface Api {
     Call<AddItemResult> addItem(@Query("price") String price, @Query("name") String name, @Query("type") String type);
 
     @POST("items/remove")
-    Call<List<Item>> remove(@Query("id") String id);
+    Call<List<Item>> remove(@Query("id") Integer id);
 
     @GET("balance")
     Call<BalanceResult> balance();

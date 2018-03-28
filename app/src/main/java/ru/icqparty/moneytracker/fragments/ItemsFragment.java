@@ -26,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.icqparty.moneytracker.App;
 import ru.icqparty.moneytracker.R;
+import ru.icqparty.moneytracker.activities.ConfirmationDialogListener;
 import ru.icqparty.moneytracker.activities.RemoveDialog;
 import ru.icqparty.moneytracker.adapters.ItemsAdapter;
 import ru.icqparty.moneytracker.adapters.ItemsAdapterListener;
@@ -93,7 +94,7 @@ public class ItemsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         itemsAdapter = new ItemsAdapter();
-        itemsAdapter.setListener(new CliclListener());
+        itemsAdapter.setListener(new ClickListener());
 
         Bundle bundle = getArguments();
         type = bundle.getString(TYPE_KEY, Item.TYPE_UNKNOWN);
@@ -181,15 +182,29 @@ public class ItemsFragment extends Fragment {
         for (int i = itemsAdapter.getSelectedItems().size() - 1; i >= 0; i--) {
             Log.d(TAG, "removeSelectedItems: " + i);
             itemsAdapter.remove(itemsAdapter.getSelectedItems().get(i));
+
+
         }
     }
 
     private void removeDialog() {
         RemoveDialog dialog = new RemoveDialog();
         dialog.show(getActivity().getFragmentManager(), "ConfirmationDialog");
+        dialog.setListener(new ConfirmationDialogListener() {
+            @Override
+            public void onPositiveBtnClicked() {
+                removeSelectedItems();
+            }
+
+            @Override
+            public void onNegativeBtnClicked() {
+                actionMode.finish();
+            }
+        });
     }
 
-    private class CliclListener implements ItemsAdapterListener {
+
+    private class ClickListener implements ItemsAdapterListener {
         @Override
         public void onItemClick(Item item, int position) {
             if (isInActionMode()) {

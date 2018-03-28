@@ -58,7 +58,8 @@ public class AuthActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
+
+
     }
 
 
@@ -82,7 +83,6 @@ public class AuthActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
             Log.i(TAG, "signInResult:account" + account);
             updateUI(account);
         } catch (ApiException e) {
@@ -94,7 +94,6 @@ public class AuthActivity extends AppCompatActivity {
     private void updateUI(GoogleSignInAccount account) {
         if (account != null) {
             String id = account.getId();
-
             api.auth(id).enqueue(new Callback<AuthResult>() {
                 @Override
                 public void onResponse(Call<AuthResult> call, retrofit2.Response<AuthResult> response) {

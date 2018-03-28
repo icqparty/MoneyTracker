@@ -2,6 +2,7 @@ package ru.icqparty.moneytracker;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,6 +72,9 @@ public class App extends Application {
     }
 
     public boolean isAuthorized() {
+
+
+        Log.e("xxxx", "isAuthorized: " + getAuthToken());
         return !TextUtils.isEmpty(getAuthToken());
     }
 

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import ru.icqparty.moneytracker.R;
@@ -19,7 +20,6 @@ public class DiagramView extends View {
 
     private int income;
     private int expense;
-
 
     private Paint incomePaint = new Paint();
     private Paint expensePaint = new Paint();
@@ -45,6 +45,7 @@ public class DiagramView extends View {
     }
 
     public void update(int income, int expense) {
+        Log.e("DiagramView", "update: " + income + ":" + expense);
         this.income = income;
         this.expense = expense;
         invalidate();
@@ -59,7 +60,6 @@ public class DiagramView extends View {
         } else {
             drawRectDiagram(canvas);
         }
-
     }
 
     private void drawRectDiagram(Canvas canvas) {
