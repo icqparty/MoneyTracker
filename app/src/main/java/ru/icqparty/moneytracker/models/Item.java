@@ -38,6 +38,7 @@ public class Item implements Parcelable {
         this.value = value;
     }
 
+
     protected Item(Parcel in) {
         type = in.readString();
         name = in.readString();
