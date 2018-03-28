@@ -32,6 +32,7 @@ public class Item implements Parcelable {
     @SerializedName("price")
     public String value;
 
+
     public Item(String type, String name, String value) {
         this.type = type;
         this.name = name;
