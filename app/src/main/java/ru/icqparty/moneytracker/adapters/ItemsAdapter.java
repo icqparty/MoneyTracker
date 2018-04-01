@@ -2,6 +2,7 @@ package ru.icqparty.moneytracker.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,8 +71,9 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
     }
 
     public List<Integer> getSelectedItems() {
-        List<Integer> items = new ArrayList<>();
+        List<Integer> items = new ArrayList<>(sparseBooleanArray.size());
         for (int i = 0; i < sparseBooleanArray.size(); i++) {
+            Log.i("log", "getSelectedItems: +");
             items.add(sparseBooleanArray.keyAt(i));
         }
         return items;

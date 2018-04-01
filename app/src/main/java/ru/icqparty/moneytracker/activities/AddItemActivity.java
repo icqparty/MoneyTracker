@@ -68,7 +68,7 @@ public class AddItemActivity extends AppCompatActivity {
                 String value = valueItem.getText().toString();
                 String name = nameItem.getText().toString();
 
-                Item item = new Item(type, name, value);
+                Item item = new Item(type, name, Integer.parseInt(value));
                 Intent intent = new Intent();
                 intent.putExtra("item", item);
                 setResult(RESULT_OK, intent);

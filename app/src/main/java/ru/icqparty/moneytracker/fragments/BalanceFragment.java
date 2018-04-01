@@ -33,11 +33,8 @@ public class BalanceFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         app = (App) getActivity().getApplication();
         api = app.getApi();
-
-
     }
 
     @Nullable
@@ -58,21 +55,15 @@ public class BalanceFragment extends Fragment {
     }
 
     private void updateData() {
-
         api.balance().enqueue(new Callback<BalanceResult>() {
             @Override
             public void onResponse(Call<BalanceResult> call, Response<BalanceResult> response) {
                 BalanceResult result = response.body();
-
-                result.income = 19000;
-                result.expense = 4500;
                 total.setText(getString(R.string.value, result.income - result.expense));
                 expense.setText(getString(R.string.value, result.expense));
                 income.setText(getString(R.string.value, result.income));
-
                 diagram.update(result.income, result.expense);
             }
-
             @Override
             public void onFailure(Call<BalanceResult> call, Throwable t) {
 

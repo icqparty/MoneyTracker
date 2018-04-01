@@ -20,19 +20,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import ru.icqparty.moneytracker.App;
 import ru.icqparty.moneytracker.R;
-import ru.icqparty.moneytracker.activities.ConfirmationDialogListener;
 import ru.icqparty.moneytracker.activities.RemoveDialog;
+import ru.icqparty.moneytracker.activities.RemoveDialogListener;
 import ru.icqparty.moneytracker.adapters.ItemsAdapter;
 import ru.icqparty.moneytracker.adapters.ItemsAdapterListener;
 import ru.icqparty.moneytracker.api.Api;
 import ru.icqparty.moneytracker.models.AddItemResult;
 import ru.icqparty.moneytracker.models.Item;
+import ru.icqparty.moneytracker.models.RemoveItemResult;
 
 /**
  * Created by icqparty on 17.03.2018.
@@ -50,37 +52,7 @@ public class ItemsFragment extends Fragment {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ActionMode actionMode = null;
-    private ActionMode.Callback actionModelCallback = new ActionMode.Callback() {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            MenuInflater menuInflater = new MenuInflater(getContext());
-            menuInflater.inflate(R.menu.items_menu, menu);
-            return true;
-        }
 
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.remove: {
-                    removeDialog();
-                    mode.finish();
-                    break;
-                }
-            }
-            return true;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            itemsAdapter.clearSelection();
-            actionMode = null;
-        }
-    };
 
     public static ItemsFragment createItemsFragment(String type) {
         ItemsFragment itemsFragment = new ItemsFragment();
@@ -104,6 +76,25 @@ public class ItemsFragment extends Fragment {
         }
 
         api = ((App) getActivity().getApplication()).getApi();
+    }
+
+
+    private void removeDialog() {
+        RemoveDialog dialog = new RemoveDialog();
+        dialog.show(getFragmentManager(), "ConfirmationDialog");
+        dialog.setListener(new RemoveDialogListener() {
+            @Override
+            public void onPositiveBtnClicked() {
+
+                removeSelectedItems();
+            }
+
+            @Override
+            public void onNegativeBtnClicked() {
+                actionMode.finish();
+
+            }
+        });
     }
 
     @Nullable
@@ -179,30 +170,57 @@ public class ItemsFragment extends Fragment {
 
     /* ACTION MODE */
     private void removeSelectedItems() {
+        Log.i(TAG, "removeSelectedItems: " + itemsAdapter.getSelectedItems().size());
         for (int i = itemsAdapter.getSelectedItems().size() - 1; i >= 0; i--) {
-            Log.d(TAG, "removeSelectedItems: " + i);
-            itemsAdapter.remove(itemsAdapter.getSelectedItems().get(i));
+            Item item = itemsAdapter.remove(itemsAdapter.getSelectedItems().get(i));
+            Call<RemoveItemResult> call = api.remove(item.id);
+            call.enqueue(new Callback<RemoveItemResult>() {
+                @Override
+                public void onResponse(Call<RemoveItemResult> call, Response<RemoveItemResult> response) {
 
+                }
+
+                @Override
+                public void onFailure(Call<RemoveItemResult> call, Throwable t) {
+
+                }
+            });
 
         }
+        actionMode.finish();
+
     }
 
-    private void removeDialog() {
-        RemoveDialog dialog = new RemoveDialog();
-        dialog.show(getActivity().getFragmentManager(), "ConfirmationDialog");
-        dialog.setListener(new ConfirmationDialogListener() {
-            @Override
-            public void onPositiveBtnClicked() {
-                removeSelectedItems();
-            }
+    private ActionMode.Callback actionModelCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater menuInflater = new MenuInflater(getContext());
+            menuInflater.inflate(R.menu.items_menu, menu);
+            return true;
+        }
 
-            @Override
-            public void onNegativeBtnClicked() {
-                actionMode.finish();
-            }
-        });
-    }
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
 
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.remove: {
+                    removeDialog();
+                    break;
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            itemsAdapter.clearSelection();
+            actionMode = null;
+        }
+    };
 
     private class ClickListener implements ItemsAdapterListener {
         @Override
@@ -218,16 +236,17 @@ public class ItemsFragment extends Fragment {
                 return;
             }
 
-            actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(actionModelCallback);
+            actionMode = ((AppCompatActivity) Objects.requireNonNull(getActivity())).startSupportActionMode(actionModelCallback);
             toggleSelection(position);
         }
 
-        private boolean isInActionMode() {
-            return actionMode != null;
-        }
 
         private void toggleSelection(int position) {
             itemsAdapter.toggleSeletion(position);
         }
+    }
+
+    private boolean isInActionMode() {
+        return actionMode != null;
     }
 }

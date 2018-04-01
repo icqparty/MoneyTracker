@@ -86,7 +86,7 @@ public class AuthActivity extends AppCompatActivity {
             Log.i(TAG, "signInResult:account" + account);
             updateUI(account);
         } catch (ApiException e) {
-            Log.i(TAG, "signInResult1:failed code=" + e.getMessage());
+            showMessage("Error", e.getMessage());
             updateUI(null);
         }
     }
@@ -101,7 +101,6 @@ public class AuthActivity extends AppCompatActivity {
                     Log.i(TAG, "onResponse: OK");
                     ((App) getApplication()).setAuthToken(result.token);
                     finish();
-
                 }
 
                 @Override

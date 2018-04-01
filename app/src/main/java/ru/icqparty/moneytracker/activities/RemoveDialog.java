@@ -2,26 +2,24 @@ package ru.icqparty.moneytracker.activities;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+import android.support.v4.app.DialogFragment;
+import android.util.Log;
 
 /**
  * Created by icqparty on 24.03.2018.
  */
 
 public class RemoveDialog extends DialogFragment {
+    private static final String TAG = "RemoveDialog";
+    private RemoveDialogListener listener = null;
 
-    private ConfirmationDialogListener listener = null;
-
-    public void setListener(ConfirmationDialogListener listener) {
+    public void setListener(RemoveDialogListener listener) {
         this.listener = listener;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,6 +29,8 @@ public class RemoveDialog extends DialogFragment {
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
+                        Log.i(TAG, "onClick: YES");
                         if (listener != null) {
                             listener.onPositiveBtnClicked();
                         }
@@ -39,6 +39,7 @@ public class RemoveDialog extends DialogFragment {
                 .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Log.i(TAG, "onClick: NO");
                         if (listener != null) {
                             listener.onNegativeBtnClicked();
                         }

@@ -14,7 +14,7 @@ public class Item implements Parcelable {
     public static final String TYPE_UNKNOWN = "unknown";
     public static final String TYPE_INCOMES = "incomes";
     public static final String TYPE_EXPENSES = "expenses";
-    public static final String TYPE_BALANCE = "balance";
+
     public static final Creator<Item> CREATOR = new Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {
@@ -30,9 +30,9 @@ public class Item implements Parcelable {
     public String type;
     public String name;
     @SerializedName("price")
-    public String value;
+    public Integer value;
 
-    public Item(String type, String name, String value) {
+    public Item(String type, String name, Integer value) {
         this.type = type;
         this.name = name;
         this.value = value;
@@ -42,7 +42,7 @@ public class Item implements Parcelable {
     protected Item(Parcel in) {
         type = in.readString();
         name = in.readString();
-        value = in.readString();
+        value = in.readInt();
     }
 
     @Override
@@ -55,6 +55,6 @@ public class Item implements Parcelable {
         //dest.writeInt(null);
         dest.writeString(type);
         dest.writeString(name);
-        dest.writeString(value);
+        dest.writeInt(value);
     }
 }

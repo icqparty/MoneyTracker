@@ -4,7 +4,7 @@ package ru.icqparty.moneytracker.activities;
  * Created by icqparty on 27.03.2018.
  */
 
-public interface ConfirmationDialogListener {
+public interface RemoveDialogListener {
     void onPositiveBtnClicked();
 
     void onNegativeBtnClicked();

@@ -10,6 +10,7 @@ import ru.icqparty.moneytracker.models.AddItemResult;
 import ru.icqparty.moneytracker.models.AuthResult;
 import ru.icqparty.moneytracker.models.BalanceResult;
 import ru.icqparty.moneytracker.models.Item;
+import ru.icqparty.moneytracker.models.RemoveItemResult;
 
 /**
  * Created by icqparty on 17.03.2018.
@@ -27,10 +28,10 @@ public interface Api {
     Call<List<Item>> getItems(@Query("type") String type);
 
     @POST("items/add")
-    Call<AddItemResult> addItem(@Query("price") String price, @Query("name") String name, @Query("type") String type);
+    Call<AddItemResult> addItem(@Query("price") Integer price, @Query("name") String name, @Query("type") String type);
 
     @POST("items/remove")
-    Call<List<Item>> remove(@Query("id") Integer id);
+    Call<RemoveItemResult> remove(@Query("id") Integer id);
 
     @GET("balance")
     Call<BalanceResult> balance();
