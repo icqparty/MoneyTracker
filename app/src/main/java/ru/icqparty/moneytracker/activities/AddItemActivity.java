@@ -51,7 +51,7 @@ public class AddItemActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (nameItem.getText().length() > 0 && valueItem.getText().length() > 0)
+                if (nameItem.getText().length() > 0 && valueItem.getText().length() > 0 && Integer.parseInt(valueItem.getText().toString()) > 0)
                     addButtonItem.setEnabled(true);
                 else addButtonItem.setEnabled(false);
             }
@@ -68,7 +68,7 @@ public class AddItemActivity extends AppCompatActivity {
                 String value = valueItem.getText().toString();
                 String name = nameItem.getText().toString();
 
-                Item item = new Item(type, name, Integer.parseInt(value));
+                Item item = new Item(type, name, value);
                 Intent intent = new Intent();
                 intent.putExtra("item", item);
                 setResult(RESULT_OK, intent);

@@ -30,9 +30,9 @@ public class Item implements Parcelable {
     public String type;
     public String name;
     @SerializedName("price")
-    public Integer value;
+    public String value;
 
-    public Item(String type, String name, Integer value) {
+    public Item(String type, String name, String value) {
         this.type = type;
         this.name = name;
         this.value = value;
@@ -42,7 +42,7 @@ public class Item implements Parcelable {
     protected Item(Parcel in) {
         type = in.readString();
         name = in.readString();
-        value = in.readInt();
+        value = in.readString();
     }
 
     @Override
@@ -55,6 +55,6 @@ public class Item implements Parcelable {
         //dest.writeInt(null);
         dest.writeString(type);
         dest.writeString(name);
-        dest.writeInt(value);
+        dest.writeString(value);
     }
 }
