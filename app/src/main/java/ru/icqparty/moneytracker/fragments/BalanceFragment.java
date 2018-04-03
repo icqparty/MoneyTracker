@@ -16,7 +16,6 @@ import ru.icqparty.moneytracker.App;
 import ru.icqparty.moneytracker.R;
 import ru.icqparty.moneytracker.api.Api;
 import ru.icqparty.moneytracker.models.BalanceResult;
-import ru.icqparty.moneytracker.models.DiagramView;
 
 public class BalanceFragment extends Fragment {
 
@@ -59,6 +58,7 @@ public class BalanceFragment extends Fragment {
             @Override
             public void onResponse(Call<BalanceResult> call, Response<BalanceResult> response) {
                 BalanceResult result = response.body();
+
                 total.setText(getString(R.string.value, result.income - result.expense));
                 expense.setText(getString(R.string.value, result.expense));
                 income.setText(getString(R.string.value, result.income));

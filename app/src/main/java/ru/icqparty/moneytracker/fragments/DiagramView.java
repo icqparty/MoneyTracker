@@ -1,4 +1,4 @@
-package ru.icqparty.moneytracker.models;
+package ru.icqparty.moneytracker.fragments;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -38,10 +38,10 @@ public class DiagramView extends View {
         this.incomePaint.setColor(getResources().getColor(R.color.balance_text_income));
         this.expensePaint.setColor(getResources().getColor(R.color.balance_text_expense));
 
-        if (isInEditMode()) {
-            this.income = 19000;
-            this.expense = 4500;
-        }
+//        if (isInEditMode()) {
+//            this.income = 19000;
+//            this.expense = 4500;
+//        }
     }
 
     public void update(int income, int expense) {

@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Objects;
@@ -157,13 +158,19 @@ public class ItemsFragment extends Fragment {
         api.addItem(item.value, item.name, item.type).enqueue(new Callback<AddItemResult>() {
             @Override
             public void onResponse(Call<AddItemResult> call, retrofit2.Response<AddItemResult> response) {
-                Log.d(TAG, "onResponse: add item" + response.body());
+                Log.d(TAG, "onResponse: add item " + response.code() + " : " + item.status);
+
+                if (response.code() > 200) {
+                    item.status = 1;
+                    Toast.makeText(getContext(), "Сервер временно не доступен", Toast.LENGTH_SHORT).show();
+
+                }
                 itemsAdapter.addItem(item);
             }
 
             @Override
             public void onFailure(Call<AddItemResult> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + t.getMessage());
+                Log.d(TAG, "Error:" + t.getMessage());
             }
         });
     }

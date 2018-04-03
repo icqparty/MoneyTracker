@@ -32,6 +32,8 @@ public class Item implements Parcelable {
     @SerializedName("price")
     public String value;
 
+    public int status;
+
     public Item(String type, String name, String value) {
         this.type = type;
         this.name = name;
@@ -52,7 +54,6 @@ public class Item implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        //dest.writeInt(null);
         dest.writeString(type);
         dest.writeString(name);
         dest.writeString(value);

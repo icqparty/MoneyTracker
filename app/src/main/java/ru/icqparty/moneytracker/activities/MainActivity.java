@@ -130,11 +130,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     protected void onResume() {
-        super.onResume();
+
         if (!((App) getApplication()).isAuthorized()) {
             Intent intent = new Intent(this, AuthActivity.class);
             Log.i(TAG, "onResume: +++");
             startActivity(intent);
         }
+        super.onResume();
     }
 }

@@ -12,7 +12,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="10000.33Р"
+        android:text="0Р"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/balance_text"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="24dp"
-        android:text="10456Р"
+        android:text="0Р"
         android:textAlignment="center"
         android:textColor="@color/balance_text_expense"
         android:textSize="24sp"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
         android:layout_marginStart="8dp"
-        android:text="1045Р"
+        android:text="0Р"
         android:textAlignment="center"
         android:textColor="@color/balance_text_income"
         android:textSize="24sp"
@@ -93,7 +93,7 @@
         app:layout_constraintStart_toStartOf="@+id/income"
         app:layout_constraintTop_toBottomOf="@+id/income" />
 
-    <ru.icqparty.moneytracker.models.DiagramView
+    <ru.icqparty.moneytracker.fragments.DiagramView
         android:id="@+id/diagram"
         android:layout_width="359dp"
         android:layout_height="220dp"

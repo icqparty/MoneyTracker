@@ -7,6 +7,7 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
     private List<Item> data = new ArrayList<>();
     private ItemsAdapterListener itemsAdapterListener = null;
     private SparseBooleanArray sparseBooleanArray = new SparseBooleanArray();
+    private static final String TAG = "ItemsAdapter";
 
     public void setListener(ItemsAdapterListener listener) {
         this.itemsAdapterListener = listener;
@@ -88,6 +90,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
     static class RecordVievHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView value;
+        private ImageView status;
 
         private Context context;
 
@@ -96,11 +99,20 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.RecordVievHo
             this.context = itemView.getContext();
             name = itemView.findViewById(R.id.name);
             value = itemView.findViewById(R.id.value);
+            status = itemView.findViewById(R.id.status);
+
         }
 
         public void setData(final Item item, final int position, final ItemsAdapterListener itemsAdapterListener, boolean selected) {
             name.setText(item.name);
             value.setText(String.format("%1$s %2$s", String.valueOf(item.value), this.context.getResources().getString(R.string.char_rub)));
+            Log.d(TAG, "setData: " + item.status);
+            if (item.status == 0) {
+                status.setVisibility(View.GONE);
+            } else {
+                status.setVisibility(View.VISIBLE);
+            }
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

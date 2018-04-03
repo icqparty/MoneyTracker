@@ -43,6 +43,7 @@ public class AddItemActivity extends AppCompatActivity {
         TextWatcher watcherChange = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
@@ -51,7 +52,14 @@ public class AddItemActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (nameItem.getText().length() > 0 && valueItem.getText().length() > 0 && Integer.parseInt(valueItem.getText().toString()) > 0)
+
+                String name = nameItem.getText().toString().replace(" ", "").trim();
+                Log.d(TAG, "afterTextChanged: " + name);
+                if (name.length() > 0 &&
+
+                        valueItem.getText().length() > 0 &&
+                        valueItem.getText().toString() != "0"
+                        )
                     addButtonItem.setEnabled(true);
                 else addButtonItem.setEnabled(false);
             }
@@ -66,7 +74,7 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String value = valueItem.getText().toString();
-                String name = nameItem.getText().toString();
+                String name = nameItem.getText().toString().trim();
 
                 Item item = new Item(type, name, value);
                 Intent intent = new Intent();

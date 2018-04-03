@@ -25,11 +25,8 @@ import ru.icqparty.moneytracker.models.AuthResult;
 public class AuthActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 321;
-
     private static final String TAG = "AuthActivity";
-
     private GoogleSignInClient googleSignInClient;
-
     private Api api;
 
     @Override
@@ -38,8 +35,6 @@ public class AuthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_auth);
 
         api = ((App) getApplication()).getApi();
-
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .build();
 
@@ -58,8 +53,6 @@ public class AuthActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-
-
     }
 
 
