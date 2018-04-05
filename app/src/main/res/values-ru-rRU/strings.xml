@@ -3,10 +3,12 @@
     <string name="app_name">MoneyTracker</string>
     <string name="main_activity_text_hello">Привет! Вася!</string>
     <string name="char_rub">₽</string>
-    <string name="add_item_activity_hint_name">название</string>
+    <string name="add_item_activity_hint_name">Название</string>
     <string name="add_item_activity_header">Новая завись</string>
     <string name="item_list_activity_header">Учет бюджета</string>
     <string name="tab_incomes">Доходы</string>
     <string name="tab_expenses">Расходы</string>
-    <string name="tab_balance">Balance</string>
+    <string name="tab_balance">Баланс</string>
+    <string name="action_remove">Удалить</string>
+    <string name="action_edit">Изменить</string>
 </resources>

@@ -7,19 +7,18 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:elevation="4dp"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:background="@color/colorAccent"
-        android:layout_height="?android:attr/actionBarSize" />
-
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <LinearLayout
-        android:elevation="3dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_layout_height"
         android:background="@color/additem_activity_bg_form"
+        android:elevation="5dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/additem_padding_left"
@@ -31,9 +30,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
+            android:fontFamily="sans-serif-light"
             android:hint="@string/add_item_activity_hint_name"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:typeface="normal" />
 
         <EditText
             android:id="@+id/value_item"
@@ -42,10 +45,14 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:background="@null"
+            android:fontFamily="sans-serif"
             android:gravity="right"
             android:hint="0"
             android:inputType="number"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textSize="21sp"
+            android:textStyle="normal"
+            android:typeface="normal" />
 
         <TextView
             android:layout_width="15dp"
@@ -53,12 +60,13 @@
             android:layout_marginStart="1dp"
             android:background="@null"
             android:gravity="right"
-            android:text="@string/char_rub" />
+            android:text="@string/char_rub"
+            android:textSize="19sp" />
 
         <Button
             android:id="@+id/add_button_item"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_marginStart="22dp"
             android:background="@drawable/ic_add"
             android:enabled="false" />
